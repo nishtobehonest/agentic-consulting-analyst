@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Consulting Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --accent: #38bdf8;
+      --accent-dim: #0ea5e9;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --green: #4ade80;
+      --amber: #fbbf24;
+      --red: #f87171;
+      --surface: rgba(255,255,255,0.05);
+      --surface-border: rgba(255,255,255,0.1);
+    }
+
+    .reveal {
+      font-family: 'Inter', sans-serif;
+      font-size: 28px; /* night theme defaults to ~40px — this scales everything down */
+    }
+
+    .reveal .slides section {
+      text-align: left;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      padding-bottom: 1em !important;
+    }
+
+    /* Custom scrollbar so it doesn't look ugly */
+    .reveal .slides section::-webkit-scrollbar {
+      width: 4px;
+    }
+    .reveal .slides section::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .reveal .slides section::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 2px;
+    }
+
+    /* ── Typography ── */
+    .reveal h1 { font-size: 1.7em; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.15em; font-weight: 700; color: var(--accent); letter-spacing: -0.01em; margin-bottom: 0.35em; }
+    .reveal h3 { font-size: 0.9em; font-weight: 600; color: #e2e8f0; margin-bottom: 0.25em; }
+    .reveal p  { font-size: 0.72em; color: #cbd5e1; line-height: 1.5; }
+    .reveal li { font-size: 0.7em; color: #cbd5e1; line-height: 1.5; margin-bottom: 0.18em; }
+    .reveal strong { color: #fff; }
+
+    /* ── Slide label ── */
+    .slide-label {
+      position: absolute;
+      top: 0.8em;
+      right: 1em;
+      font-size: 0.48em;
+      font-weight: 500;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Accent line ── */
+    .accent-bar {
+      width: 2.5em;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 0.5em;
+    }
+
+    /* ── Tag chips ── */
+    .tag {
+      display: inline-block;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.55em;
+      font-weight: 600;
+      padding: 0.15em 0.6em;
+      border-radius: 2em;
+      margin-right: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      vertical-align: middle;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 0.55em 0.75em;
+      margin-bottom: 0.35em;
+    }
+    .card-title {
+      font-size: 0.62em;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.2em;
+    }
+    .card p, .card li { font-size: 0.68em; margin-bottom: 0.12em; }
+
+    /* ── Two-col grid ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6em; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5em; }
+
+    /* ── Tables ── */
+    .reveal table {
+      font-size: 0.62em;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .reveal table th {
+      background: rgba(56,189,248,0.2);
+      color: var(--accent);
+      font-weight: 600;
+      padding: 0.35em 0.6em;
+      text-align: left;
+      border-bottom: 2px solid var(--accent);
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .reveal table td {
+      padding: 0.32em 0.6em;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .reveal table tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+    .reveal table tr:last-child td { border-bottom: none; }
+
+    /* ── Code / mono ── */
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6em;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 0.55em 0.8em;
+      color: #94a3b8;
+      line-height: 1.6;
+      white-space: pre;
+    }
+    .mono .hi { color: var(--accent); }
+    .mono .ok { color: var(--green); }
+    .mono .warn { color: var(--amber); }
+
+    /* ── Big stat ── */
+    .big-stat {
+      font-size: 1.8em;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.6em;
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    /* ── Highlight box ── */
+    .highlight-box {
+      background: var(--accent-glow);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 0.4em 0.75em;
+      margin: 0.4em 0;
+    }
+    .highlight-box p { font-size: 0.7em; color: #e2e8f0; margin: 0; font-style: italic; }
+
+    /* ── Layer cards for eval ── */
+    .layer-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55em;
+      margin-bottom: 0.32em;
+    }
+    .layer-num {
+      width: 1.4em;
+      height: 1.4em;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.68em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1em;
+    }
+    .layer-content { flex: 1; }
+    .layer-content strong { font-size: 0.7em; color: #fff; }
+    .layer-content span { font-size: 0.65em; color: #94a3b8; display: block; }
+
+    /* ── Flow diagram ── */
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25em;
+      margin: 0.35em 0;
+    }
+    .flow-step {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 5px;
+      padding: 0.22em 0.5em;
+      font-size: 0.6em;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .flow-arrow { color: var(--accent); font-size: 0.8em; }
+
+    /* ── Title slide specific ── */
+    .title-slide { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+    .title-eyebrow {
+      font-size: 0.58em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.4em;
+    }
+    .title-quote {
+      font-size: 0.62em;
+      color: #64748b;
+      font-style: italic;
+      border-left: 2px solid #334155;
+      padding-left: 0.7em;
+      margin-top: 0.8em;
+      line-height: 1.55;
+    }
+    .title-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55em;
+      color: var(--accent);
+      margin-top: 0.25em;
+    }
+
+    /* ── Cost table coloring ── */
+    .cost-total td { color: #fff !important; font-weight: 700; background: rgba(56,189,248,0.12) !important; }
+    .cost-total td:last-child { color: var(--accent) !important; }
+
+    /* ── Green / amber dots ── */
+    .dot-green::before { content: '●'; color: var(--green); margin-right: 0.35em; font-size: 0.8em; }
+    .dot-amber::before { content: '●'; color: var(--amber); margin-right: 0.35em; font-size: 0.8em; }
+    .dot-accent::before { content: '●'; color: var(--accent); margin-right: 0.35em; font-size: 0.8em; }
+
+    /* ── Footer ── */
+    .slide-footer {
+      position: absolute;
+      bottom: 0.8em;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1.5em;
+      font-size: 0.5em;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── Metric pill ── */
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      background: rgba(74,222,128,0.12);
+      border: 1px solid rgba(74,222,128,0.3);
+      border-radius: 2em;
+      padding: 0.1em 0.5em;
+      font-size: 0.58em;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    /* remove default reveal bullets */
+    .reveal ul { list-style: none; padding-left: 0; }
+    .reveal ul li::before { content: '→'; color: var(--accent); margin-right: 0.5em; font-weight: 700; }
+    .reveal ol { padding-left: 1.2em; }
+    .reveal ol li::before { content: none; }
+    .reveal ol li { list-style: decimal; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ══════════════════════════════════════
+     SLIDE 1: TITLE
+══════════════════════════════════════ -->
+<section>
+  <div style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:1.8em; height:100%; align-items:center; padding:0.3em 0;">
+    <div>
+      <div class="title-eyebrow">AI for Business Applications</div>
+      <div class="accent-bar"></div>
+      <h1>Agentic Consulting Analyst</h1>
+      <div style="display:flex; gap:1.2em; align-items:center; margin-top:0.4em; margin-bottom:0.1em;">
+        <div style="font-size:0.55em;">
+          <span style="color:#94a3b8; font-weight:600;">Nishchay V</span>
+          <span style="color:#475569; margin-left:0.3em;">nv268</span>
+        </div>
+        <div style="width:1px; height:0.9em; background:rgba(255,255,255,0.12);"></div>
+        <div style="font-size:0.55em;">
+          <span style="color:#94a3b8; font-weight:600;">Xinxin Xu</span>
+          <span style="color:#475569; margin-left:0.3em;">xx379</span>
+        </div>
+      </div>
+      <p style="font-size:1.0em; color:#94a3b8; margin-top:0.3em; font-weight:300;">A 24/7 AI That Knows Every Case Cold</p>
+      <p style="font-size:0.72em; color:#475569; margin-top:0.15em;">From Static Dashboards to an Autonomous Business Intelligence Agent</p>
+      <div class="title-quote">
+        "This is a live product we built as a standalone project — an interactive case study dashboard analyzing the Oracle vs Salesforce competitive landscape, grounded in the digital consulting cases we are studying. It can answer questions about the data on screen. But it cannot reason across multiple cases, it does not remember users across sessions, it cannot pull today's market data, and every conversation starts from scratch. <strong style="color:#e2e8f0;">That's the gap this agent fills.</strong>"
+      </div>
+      <p style="font-size:0.58em; color:#475569; margin-top:0.4em; line-height:1.5;">
+        We prepared and analyzed five business cases — Oracle vs Salesforce, Apple AR, Domino's, Epic, and Upwork — through our digital consulting case classes. This agent is what that ongoing analysis demands.
+      </p>
+      <div class="title-url">→ <a href="https://oracle-salesforce-dashboard.vercel.app" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(56,189,248,0.4);">oracle-salesforce-dashboard.vercel.app</a></div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:0.5em;">
+      <div id="iframe-wrapper" style="border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 8px 40px rgba(0,0,0,0.5); position:relative; width:100%;">
+        <div id="iframe-scaler" style="transform-origin:top left; width:390px;">
+          <iframe src="https://oracle-salesforce-dashboard.vercel.app"
+                  style="width:390px; height:520px; display:block; border:none; background:#f8fafc;"
+                  loading="lazy"
+                  title="Oracle vs Salesforce Dashboard">
+          </iframe>
+        </div>
+      </div>
+      <p style="font-size:0.52em; color:#334155; text-align:center; margin:0;">oracle-salesforce-dashboard.vercel.app — live, deployed on Vercel</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Start by opening the live dashboard in a browser tab. Show the Oracle vs Salesforce dashboard — the Financials tab, the AI chat. Ask it a question about Salesforce revenue. Then pause: "This is useful. But it has hard limits." Walk through each limit as you set up the problem.
+
+    Key setup: This is not hypothetical. We built and deployed this product as part of our course project. The presentation is about what it needs to become — and why the architecture demands an agent, not just a better prompt.
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 2: BUSINESS PROBLEM
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">Business Problem · Slide 2</div>
+  <h2>The Business Problem</h2>
+  <p style="font-size:0.72em; color:#94a3b8; margin-bottom:0.5em;">While preparing our course case studies, we encountered a gap that no existing tool addresses — and that affects every consulting candidate.</p>
+  <div class="grid-2" style="gap:0.7em; margin-top:0.2em;">
+    <div>
+      <div class="card">
+        <div class="card-title">The Pain</div>
+        <ul>
+          <li><strong>$200–500/hr</strong> for human case coaches — scarce and expensive</li>
+          <li>Case PDFs are <strong>static</strong> — can't interact with them, can't ask follow-ups</li>
+          <li>Cases go <strong>stale</strong> — the Oracle/Salesforce PDF has no idea what happened in 2025</li>
+          <li>No <strong>cross-case synthesis</strong> at scale — who's read all 5 cases and can compare them?</li>
+          <li>Professors can't give <strong>200 students</strong> personalized analytical feedback</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:0.5em;">
+        <div class="card-title">Market Context — ~50,000 applicants/year globally</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:0.35em; margin-top:0.35em;">
+          <div style="text-align:center; background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.25); border-radius:6px; padding:0.45em 0.3em;">
+            <div style="font-size:0.9em; font-weight:800; color:#f87171; line-height:1;">$200+</div>
+            <div style="font-size:0.58em; color:#64748b; margin-top:0.1em;">/session</div>
+            <div style="font-size:0.6em; color:#94a3b8; margin-top:0.2em; font-weight:600;">CaseCoach</div>
+            <div style="font-size:0.52em; color:#475569; margin-top:0.1em;">human coach</div>
+          </div>
+          <div style="text-align:center; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); border-radius:6px; padding:0.45em 0.3em;">
+            <div style="font-size:0.9em; font-weight:800; color:#fbbf24; line-height:1;">$60–90</div>
+            <div style="font-size:0.58em; color:#64748b; margin-top:0.1em;">/month</div>
+            <div style="font-size:0.6em; color:#94a3b8; margin-top:0.2em; font-weight:600;">RocketBlocks</div>
+            <div style="font-size:0.52em; color:#475569; margin-top:0.1em;">generic frameworks</div>
+          </div>
+          <div style="text-align:center; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); border-radius:6px; padding:0.45em 0.3em;">
+            <div style="font-size:0.9em; font-weight:800; color:#fbbf24; line-height:1;">$30</div>
+            <div style="font-size:0.58em; color:#64748b; margin-top:0.1em;">/month</div>
+            <div style="font-size:0.6em; color:#94a3b8; margin-top:0.2em; font-weight:600;">CasePrepared</div>
+            <div style="font-size:0.52em; color:#475569; margin-top:0.1em;">pre-recorded</div>
+          </div>
+          <div style="text-align:center; background:rgba(74,222,128,0.1); border:2px solid rgba(74,222,128,0.4); border-radius:6px; padding:0.45em 0.3em; position:relative;">
+            <div style="font-size:0.9em; font-weight:800; color:#4ade80; line-height:1;">$20</div>
+            <div style="font-size:0.58em; color:#64748b; margin-top:0.1em;">/month</div>
+            <div style="font-size:0.6em; color:var(--accent); margin-top:0.2em; font-weight:700;">Our Agent</div>
+            <div style="font-size:0.52em; color:#4ade80; margin-top:0.1em;">real cases + live data</div>
+          </div>
+        </div>
+        <p style="font-size:0.6em; color:#475569; margin-top:0.3em;">None of the above use real, data-rich case studies with live market grounding.</p>
+      </div>
+    </div>
+    <div>
+      <div style="margin-bottom:0.5em;">
+        <h3 style="color:#94a3b8; font-size:0.8em; text-transform:uppercase; letter-spacing:0.06em;">Who Benefits</h3>
+      </div>
+      <div class="card" style="border-color:rgba(56,189,248,0.3);">
+        <div class="card-title" style="color:var(--accent);">Primary</div>
+        <p><strong>Consulting candidates</strong> — unlimited practice on real cases with structured feedback and live market data. Replace the $200/hr coach.</p>
+      </div>
+      <div class="card" style="margin-top:0.4em;">
+        <div class="card-title">Secondary</div>
+        <p>Business students — deeper post-class exploration without TA bottleneck.</p>
+      </div>
+      <div class="card" style="margin-top:0.4em;">
+        <div class="card-title">Future</div>
+        <p>Consulting firms onboarding analysts to internal proprietary case libraries.</p>
+      </div>
+
+      <div class="highlight-box" style="margin-top:0.7em;">
+        <p>"Task 1: Let's make this a RAG system." — <em>This repo's own ToDo file</em></p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    The most important framing: this is not just an academic tool. The real monetizable pain is consulting interview prep. People pay $200–500/hr for human coaches. That's the revenue thesis.
+
+    We are studying five business cases through our digital consulting case classes — Oracle/Salesforce, Apple AR, Domino's, Epic, Upwork. The analysis is done. The knowledge base exists. The agent just needs to unlock it intelligently.
+
+    End with the ToDo file — it's a real file in our repo. "Even the project itself knows what it needs to become."
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 3: AI PROBLEM + WHY NOT CHATGPT
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">AI Problem · Slide 3</div>
+  <h2>The AI Problem</h2>
+  <div class="grid-2" style="gap:0.8em;">
+    <div>
+      <p style="font-size:0.62em; color:#64748b; margin-bottom:0.4em;">Why this requires an <em>agent</em>, not a prompt</p>
+      <div class="layer-row">
+        <div class="layer-num">1</div>
+        <div class="layer-content">
+          <strong>Synthesis at scale</strong>
+          <span>Unstructured PDFs + structured financials + live market signals — simultaneously</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">2</div>
+        <div class="layer-content">
+          <strong>Multi-step reasoning</strong>
+          <span>Retrieve passage → apply framework → cross-reference live data → cite sources. Cannot be done in a single prompt.</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">3</div>
+        <div class="layer-content">
+          <strong>Personalization</strong>
+          <span>Tracks what frameworks users have drilled, what mistakes they've repeated, where their gaps are</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">4</div>
+        <div class="layer-content">
+          <strong>Real-time grounding</strong>
+          <span>A 2021 Salesforce case needs today's market cap and recent news to be useful in a 2025 interview</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:0.62em; color:#64748b; margin-bottom:0.4em;">Why not just ask ChatGPT?</p>
+      <table>
+        <thead><tr><th>What users need</th><th>ChatGPT gives them</th></tr></thead>
+        <tbody>
+          <tr><td>Your case PDFs</td><td style="color:#f87171;">Its training data only</td></tr>
+          <tr><td>Memory across sessions</td><td style="color:#f87171;">Forgets everything</td></tr>
+          <tr><td>Live financial data</td><td style="color:#f87171;">Knowledge cutoff</td></tr>
+          <tr><td>Multi-step orchestration</td><td style="color:#f87171;">Single-turn response</td></tr>
+          <tr><td>Curriculum alignment</td><td style="color:#f87171;">Generic answers</td></tr>
+          <tr><td>Structured deliverables</td><td style="color:#f87171;">Freeform text</td></tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:0.6em;">
+        <p style="font-size:0.7em; color:#64748b; margin-bottom:0.3em;">Data needed — all feasible ✅</p>
+        <div class="mono" style="font-size:0.62em; padding:0.5em 0.8em;">
+<span class="ok">✓</span> 5 case PDFs — already in the repo
+<span class="ok">✓</span> Financial data — caseData.js + Yahoo Finance
+<span class="ok">✓</span> News — Bing Search API (free tier)
+<span class="ok">✓</span> User history — from live chat sessions</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    The 4 AI requirements explain why this is structurally an agent problem, not a "better prompt" problem. Emphasize #2 — multi-step reasoning — because that's what defines agentic systems vs chatbots.
+
+    For the ChatGPT table: go through each row. The most compelling are memory (no persistence) and orchestration (can't chain tools). These aren't fixable by writing a better prompt.
+
+    The data feasibility point is important for the rubric — every data source must be acquirable. All 4 are either already in the repo or freely available APIs.
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 4: EVALUATION — INTRO
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">Evaluation · Slide 4</div>
+  <h2>Evaluating the Agent</h2>
+  <div style="margin-bottom:0.8em;">
+    <div class="highlight-box">
+      <p>"The only way to scale capability without breaking trust is through systematic evaluation." — OpenAI, Inside Our In-House Data Agent</p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="gap:0.8em; align-items:start;">
+    <div>
+      <div class="card">
+        <div class="card-title">The Challenge</div>
+        <p>No pilot groups — they don't scale. Can't run a pilot on every code push. Subjective feedback is hard to aggregate. Hiring users takes weeks.</p>
+        <p style="margin-top:0.4em; color:#94a3b8;">We need evaluation that runs in <strong style="color:#fff;">under 5 minutes</strong>, produces <strong style="color:#fff;">quantitative metrics</strong>, and <strong style="color:#fff;">blocks bad deploys programmatically</strong> — on every git push.</p>
+      </div>
+
+      <div class="card" style="margin-top:0.5em;">
+        <div class="card-title">OpenAI's Method (Adapted)</div>
+        <p>Curated Q&amp;A pairs with <strong>"golden answers"</strong> compared programmatically — not string matching but <strong>semantic equivalence</strong> via cosine similarity of embeddings.</p>
+        <p style="margin-top:0.3em; color:#94a3b8;">Their "golden SQL" = our "golden answers from case PDF text."</p>
+      </div>
+    </div>
+
+    <div>
+      <div style="margin-bottom:0.5em;">
+        <div class="card-title" style="color:#94a3b8; font-size:0.65em;">6-Layer Framework — Overview</div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">1</div>
+        <div class="layer-content"><strong>Golden Answer Benchmarks</strong><span>150 Q&amp;A pairs, factual + analytical</span></div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">2</div>
+        <div class="layer-content"><strong>RAG Retrieval Quality</strong><span>recall@5 and precision@1 on 50 known passages</span></div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">3</div>
+        <div class="layer-content"><strong>LLM-as-Judge</strong><span>Claude Opus evaluates 5% of live queries on 4 dimensions</span></div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">4</div>
+        <div class="layer-content"><strong>Consistency Testing</strong><span>Same question × 10 runs, measure semantic variance</span></div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">5</div>
+        <div class="layer-content"><strong>Hallucination Traps</strong><span>20 false-premise questions, target &gt;95% correction rate</span></div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">6</div>
+        <div class="layer-content"><strong>Scope Boundary Tests</strong><span>Off-topic + ambiguous queries, measure graceful decline</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Start with the OpenAI quote — it's from the assigned article and shows you read it carefully.
+
+    The key insight: evaluation isn't a one-time thing. It's a CI/CD pipeline that runs on every git push. Just like tests in software engineering. Most groups will say "we'd do user testing" — you have a much more sophisticated answer.
+
+    The OpenAI parallel: they compare generated SQL to golden SQL. We compare generated analytical answers to golden answers from case text. Same principle, different domain.
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 5: EVALUATION — DEEP DIVE
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">Evaluation · Slide 5</div>
+  <h2>6-Layer Evaluation Framework</h2>
+  <div class="grid-2" style="gap:0.6em;">
+    <div>
+      <div class="card" style="border-color:rgba(56,189,248,0.3);">
+        <div class="card-title">Layer 1 — Golden Benchmarks</div>
+        <ul>
+          <li><em>Factual:</em> "Salesforce revenue CAGR 2015–2020?" → exact from caseData.js</li>
+          <li><em>Analytical:</em> "Porter's Five Forces on CRM 2015?" → cosine similarity vs gold answer</li>
+          <li>Run on every git push via CI/CD</li>
+        </ul>
+        <div class="metric-pill" style="margin-top:0.3em;">Target: &gt;95% factual · &gt;80% analytical</div>
+      </div>
+
+      <div class="card" style="margin-top:0.4em;">
+        <div class="card-title">Layer 2 — RAG Retrieval</div>
+        <ul>
+          <li>50 questions with known source passage locations in PDFs</li>
+          <li><strong>recall@5</strong> (right chunk in top 5?) + <strong>precision@1</strong></li>
+          <li>Zero humans — pure vector similarity scoring</li>
+        </ul>
+        <div class="metric-pill" style="margin-top:0.3em;">recall@5 &gt;85% · precision@1 &gt;65%</div>
+      </div>
+
+      <div class="card" style="margin-top:0.4em;">
+        <div class="card-title">Layer 3 — LLM-as-Judge</div>
+        <ul>
+          <li>Claude Opus evaluates 5% of live queries</li>
+          <li>4 dimensions: accuracy, citation, depth, pedagogy</li>
+          <li>Structured JSON → metrics dashboard</li>
+        </ul>
+        <div class="metric-pill" style="margin-top:0.3em;">Avg score &gt;4.0 / 5.0</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-title">Layer 4 — Consistency Testing</div>
+        <ul>
+          <li>Same question × 10 runs → measure semantic variance</li>
+          <li>High variance = hallucination risk → auto-flagged</li>
+        </ul>
+        <div class="metric-pill" style="margin-top:0.3em;">&lt;15% variance (factual) · &lt;30% (analytical)</div>
+      </div>
+
+      <div class="card" style="margin-top:0.4em; border-color:rgba(251,191,36,0.3);">
+        <div class="card-title" style="color:var(--amber);">Layer 5 — Hallucination Traps</div>
+        <p style="font-size:0.62em; color:#94a3b8; font-style:italic;">"Given Oracle's revenue declined 30% in 2022, explain why..."</p>
+        <ul>
+          <li>Agent must <strong>correct</strong> the false premise, not accept it</li>
+          <li>20 trap questions, fully automated</li>
+        </ul>
+        <div class="metric-pill" style="margin-top:0.3em; background:rgba(251,191,36,0.1); border-color:rgba(251,191,36,0.3); color:var(--amber);">Target: &gt;95% correction rate</div>
+      </div>
+
+      <div class="card" style="margin-top:0.4em;">
+        <div class="card-title">Layer 6 — Scope Boundaries</div>
+        <p style="font-size:0.62em; color:#94a3b8;">"Reliability degrades quickly when scope expands faster than governance." — OpenAI</p>
+        <ul>
+          <li>Off-topic queries → measure graceful decline rate</li>
+          <li>Ambiguous queries → measure clarification vs hallucination</li>
+        </ul>
+        <div class="metric-pill" style="margin-top:0.3em;">Off-topic decline &gt;98%</div>
+      </div>
+
+      <div style="margin-top:0.5em; background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.55em 0.8em;">
+        <div style="font-size:0.52em; color:#475569; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.4em;">CI/CD Gate — runs on every git push</div>
+        <div style="display:flex; align-items:center; gap:0.25em; flex-wrap:wrap;">
+          <div style="background:#38bdf8; color:#000; border-radius:4px; padding:0.25em 0.5em; font-size:0.6em; font-weight:700; font-family:'JetBrains Mono',monospace;">git push</div>
+          <span style="color:#334155; font-size:0.7em;">▶</span>
+          <div style="background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); border-radius:4px; padding:0.25em 0.5em; font-size:0.6em; color:#e2e8f0;">L1 Benchmarks</div>
+          <span style="color:#334155; font-size:0.7em;">▶</span>
+          <div style="background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); border-radius:4px; padding:0.25em 0.5em; font-size:0.6em; color:#e2e8f0;">L2 RAG</div>
+          <span style="color:#334155; font-size:0.7em;">▶</span>
+          <div style="background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); border-radius:4px; padding:0.25em 0.5em; font-size:0.6em; color:#e2e8f0;">L4 Consistency</div>
+          <span style="color:#334155; font-size:0.7em;">▶</span>
+          <div style="background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); border-radius:4px; padding:0.25em 0.5em; font-size:0.6em; color:#fbbf24;">L5 Traps</div>
+          <span style="color:#334155; font-size:0.7em;">▶</span>
+          <div style="background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); border-radius:4px; padding:0.25em 0.5em; font-size:0.6em; color:#e2e8f0;">L6 Scope</div>
+          <span style="color:#334155; font-size:0.7em; margin:0 0.1em;">~8 min</span>
+          <span style="color:#334155; font-size:0.7em;">▶</span>
+          <div style="display:flex; gap:0.2em;">
+            <div style="background:rgba(74,222,128,0.15); border:1px solid rgba(74,222,128,0.5); color:#4ade80; border-radius:4px; padding:0.25em 0.5em; font-size:0.6em; font-weight:700;">✓ DEPLOY</div>
+            <div style="background:rgba(248,113,113,0.12); border:1px solid rgba(248,113,113,0.4); color:#f87171; border-radius:4px; padding:0.25em 0.5em; font-size:0.6em; font-weight:700;">✗ BLOCK</div>
+          </div>
+        </div>
+        <div style="font-size:0.52em; color:#475569; margin-top:0.35em;">L3 (LLM-as-Judge) runs async on live traffic — too costly for every push</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Walk through each layer with a concrete example. Layer 5 (hallucination traps) is the most memorable — give the example: "Given Oracle's revenue declined 30% in 2022..." The agent has to push back, not comply. That's what separates a trusted system from a yes-machine.
+
+    The CI/CD gate at the bottom is key: all 6 layers run automatically. No human review needed for routine deploys. Humans only get involved when something is flagged.
+
+    Layer 3 (LLM-as-judge) is worth emphasizing: you're using a stronger model (Opus) to evaluate a weaker one (Sonnet/Haiku). This is the same principle OpenAI uses.
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 6: ARCHITECTURE — CONTEXT + 6 LAYERS
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">Architecture · Slide 6</div>
+  <h2>Agent Architecture</h2>
+  <div class="highlight-box" style="margin-bottom:0.7em;">
+    <p>"A junior consultant who has read every case cover-to-cover, has a live Bloomberg terminal, and never forgets a single client conversation."</p>
+  </div>
+
+  <div class="grid-2" style="gap:0.8em; align-items:start;">
+    <div>
+      <p style="font-size:0.68em; color:#64748b; margin-bottom:0.3em; text-transform:uppercase; letter-spacing:0.06em;">Mapped from OpenAI's 6-layer context architecture</p>
+      <table style="font-size:0.66em;">
+        <thead><tr><th style="width:10%;">#</th><th>OpenAI System</th><th>Our Agent</th></tr></thead>
+        <tbody>
+          <tr><td><strong style="color:var(--accent);">1</strong></td><td>Schema metadata</td><td>Case data schema — companies, metrics, financials</td></tr>
+          <tr><td><strong style="color:var(--accent);">2</strong></td><td>Expert table descriptions</td><td>Professor-annotated case summaries + frameworks</td></tr>
+          <tr><td><strong style="color:var(--accent);">3</strong></td><td>Slack, Notion, Docs</td><td>Course materials, assignment rubrics, class discussion notes</td></tr>
+          <tr><td><strong style="color:var(--accent);">4</strong></td><td>Learning memory (corrections)</td><td>Per-user: "Already knows Porter's 5, go deeper"</td></tr>
+          <tr><td><strong style="color:var(--accent);">5</strong></td><td>Historical query patterns</td><td>Common student questions → prioritized in retrieval</td></tr>
+          <tr><td><strong style="color:var(--accent);">6</strong></td><td>Fallback live queries</td><td>Real-time financial + news APIs</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-box" style="margin-top:0.6em;">
+        <p><strong style="color:#fff;">Context curation &gt; context volume.</strong> OpenAI found curated context outperforms large noisy datasets. This is exactly why RAG beats dumping all data into the prompt — which is what the current system does.</p>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:0.68em; color:#64748b; margin-bottom:0.3em; text-transform:uppercase; letter-spacing:0.06em;">Context window per request (~3,600 tokens)</p>
+      <div class="mono" style="font-size:0.6em;">
+<span class="hi">System prompt</span>       ~1,000 tok  <span class="ok">CACHED</span>
+  Role · scope · format · active case
+
+<span class="hi">RAG chunks</span>          ~1,500 tok
+  Top-5 passages from 5 case PDFs
+
+<span class="hi">User memory</span>         ~200 tok
+  "Practiced Porter's 5x · weak on DCF"
+
+<span class="hi">Conversation</span>        ~800 tok
+  Last 8 turns (sliding window)
+
+<span class="hi">Active tab</span>          ~100 tok   <span class="ok">ALREADY BUILT</span>
+  "User is on Financials tab"</div>
+
+      <p style="font-size:0.66em; color:#64748b; margin-top:0.4em;">vs ~8,000+ tokens in the current system (everything dumped)</p>
+    </div>
+  </div>
+  <aside class="notes">
+    The 6-layer table is the key differentiator in the architecture section. By mapping each layer to the OpenAI article, we show we're not just describing a chatbot — we're designing the same class of system that OpenAI built internally.
+
+    The context window diagram is important for the rubric: "What will be in its context?" Walk through each element. Emphasize that the system prompt is cached — that's a real API feature (Anthropic's prompt caching) that saves money.
+
+    The "context curation > volume" insight explains why our current system's approach (caseContext.js dumps everything) is the wrong architecture. Less context, better curated = better answers + lower cost. We already identified this in our codebase — the ToDo file says it directly.
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 7: MEMORY + TOOLS
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">Architecture · Slide 7</div>
+  <h2>Memory &amp; Tools</h2>
+  <div class="grid-2" style="gap:0.8em; align-items:start;">
+    <div>
+      <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">3 types of memory</p>
+      <table>
+        <thead><tr><th>Type</th><th>Stores</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><i data-lucide="layers" style="width:0.9em;height:0.9em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><strong style="color:var(--accent);">Semantic</strong><br><span style="font-size:0.8em;color:#64748b;">RAG</span></td>
+            <td>All 5 case PDFs + structured financial data</td>
+            <td>Pinecone vector DB</td>
+          </tr>
+          <tr>
+            <td><i data-lucide="clock" style="width:0.9em;height:0.9em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><strong style="color:var(--accent);">Episodic</strong><br><span style="font-size:0.8em;color:#64748b;">History</span></td>
+            <td>Per-user conversation history + learning profile</td>
+            <td>Supabase (free tier)</td>
+          </tr>
+          <tr>
+            <td><i data-lucide="cpu" style="width:0.9em;height:0.9em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><strong style="color:var(--accent);">Procedural</strong><br><span style="font-size:0.8em;color:#64748b;">Skills</span></td>
+            <td>Porter's 5, SWOT, BCG Matrix, DCF skeleton templates</td>
+            <td>System prompt (selected by intent)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:0.68em; color:#64748b; margin-top:0.7em; margin-bottom:0.3em; text-transform:uppercase; letter-spacing:0.06em;">MCP Servers</p>
+      <ul style="font-size:0.62em;">
+        <li><strong>financial-data-mcp</strong> — Yahoo Finance + Alpha Vantage</li>
+        <li><strong>web-search-mcp</strong> — Bing News + Brave Search</li>
+        <li><strong>case-library-mcp</strong> — Pinecone retrieval interface</li>
+      </ul>
+
+      <div style="margin-top:0.5em; font-size:0.65em; color:#64748b;">
+        <strong style="color:#94a3b8;">Fine-tuning / Preference Optimization:</strong> Not yet — need ~10K rated interactions for DPO. Current approach: few-shot examples + Skills templates achieves comparable quality at zero fine-tuning cost.
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">6 tools the agent has access to</p>
+      <table>
+        <thead><tr><th>Tool</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><i data-lucide="database" style="width:0.85em;height:0.85em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><span style="font-family:'JetBrains Mono',monospace; font-size:0.85em; color:var(--accent);">retrieve_case_chunks</span></td><td>RAG over 5 case PDFs — grounds every answer</td></tr>
+          <tr><td><i data-lucide="trending-up" style="width:0.85em;height:0.85em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><span style="font-family:'JetBrains Mono',monospace; font-size:0.85em; color:var(--accent);">get_financial_data</span></td><td>Live revenue, market cap, margins — makes stale cases current</td></tr>
+          <tr><td><i data-lucide="newspaper" style="width:0.85em;height:0.85em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><span style="font-family:'JetBrains Mono',monospace; font-size:0.85em; color:var(--accent);">search_recent_news</span></td><td>Post-case-writing developments via Bing News</td></tr>
+          <tr><td><i data-lucide="calculator" style="width:0.85em;height:0.85em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><span style="font-family:'JetBrains Mono',monospace; font-size:0.85em; color:var(--accent);">calculate_ratio</span></td><td>Safe arithmetic — prevents hallucinated financial math</td></tr>
+          <tr><td><i data-lucide="bar-chart-2" style="width:0.85em;height:0.85em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><span style="font-family:'JetBrains Mono',monospace; font-size:0.85em; color:var(--accent);">generate_chart</span></td><td>New Recharts visualizations on demand</td></tr>
+          <tr><td><i data-lucide="bookmark" style="width:0.85em;height:0.85em;vertical-align:-0.1em;color:var(--accent);display:inline;margin-right:0.3em;"></i><span style="font-family:'JetBrains Mono',monospace; font-size:0.85em; color:var(--accent);">save_insight</span></td><td>Write to user's personal analysis notebook</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <aside class="notes">
+    The 3 memory types map directly to the course concepts the rubric asks about: RAG (semantic), Memories (episodic), and Skills (procedural/fine-tuning alternative).
+
+    On fine-tuning: address it proactively. You're NOT fine-tuning yet — and explain why. You don't have enough data. When you do (10K interactions), you'd use DPO (Direct Preference Optimization) with the LLM-as-judge scores from Layer 3 as preference data. This shows you know when NOT to fine-tune, which is just as important.
+
+    MCP servers: mention these are the standardized way to connect agents to external data sources. Financial data MCP is what lets the agent pull live market data without hard-coding API calls into the agent.
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 8: ORCHESTRATION + SAFETY
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">Architecture · Slide 8</div>
+  <h2>Orchestration &amp; Safety</h2>
+  <div class="grid-2" style="gap:0.8em; align-items:start;">
+    <div>
+      <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Example: complex query flow</p>
+      <div class="card" style="border-color:rgba(56,189,248,0.2); padding:0.6em 0.8em;">
+        <p style="font-size:0.7em; color:#94a3b8; font-style:italic; margin-bottom:0.5em;">"How does Oracle's cloud strategy compare to Salesforce's today?"</p>
+        <div class="flow">
+          <div class="flow-step">Intent: complex</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Route: Sonnet</div>
+        </div>
+        <div class="flow" style="margin-top:0.3em;">
+          <div class="flow-step">Tool plan</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step" style="border-color:var(--accent);">RAG</div>
+          <div class="flow-step" style="border-color:var(--accent);">Finance API</div>
+          <div class="flow-step" style="border-color:var(--accent);">News</div>
+        </div>
+        <div class="flow" style="margin-top:0.3em;">
+          <div class="flow-step">Synthesize</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">BCG Matrix skill</div>
+        </div>
+        <div class="flow" style="margin-top:0.3em;">
+          <div class="flow-step">Stream + cite</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Log to eval</div>
+        </div>
+      </div>
+
+      <div style="margin-top:0.5em;">
+        <p style="font-size:0.7em; color:#64748b; margin-bottom:0.3em; text-transform:uppercase; letter-spacing:0.05em;">Model routing</p>
+        <div class="card">
+          <ul>
+            <li class="dot-accent"><strong>60%</strong> simple factual → <strong>Haiku</strong> (fast, cheap)</li>
+            <li class="dot-accent"><strong>40%</strong> complex synthesis → <strong>Sonnet</strong> (deep reasoning)</li>
+            <li class="dot-green">Quality gate: escalate Haiku → Sonnet if confidence low</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Safety: "Dumb Guardrails" (OpenAI principle)</p>
+      <div class="card">
+        <ul>
+          <li>Every factual claim requires a source citation</li>
+          <li>Retrieval confidence &lt; 0.7 → <em>"I'm not certain — here's what I found..."</em></li>
+          <li>Hard scope boundary: business case analysis only — graceful decline for off-topic</li>
+          <li><strong>Simple, strict rules</strong> — not clever ones that fail at edges</li>
+        </ul>
+      </div>
+
+      <p style="font-size:0.68em; color:#64748b; margin-top:0.6em; margin-bottom:0.3em; text-transform:uppercase; letter-spacing:0.06em;">What's already built — no rewrite needed</p>
+      <div class="mono" style="font-size:0.58em; padding:0.5em 0.8em;">
+<span class="ok">✓</span> <span class="hi">caseContext.js</span>   → extend to inject RAG + memory
+<span class="ok">✓</span> <span class="hi">api/chat.js</span>       → add tool loop around SSE stream
+<span class="ok">✓</span> <span class="hi">caseData.js</span>       → becomes Layer 1 vector index
+<span class="ok">✓</span> <span class="hi">5 PDF case files</span>  → chunk + embed → Pinecone</div>
+
+      <p style="font-size:0.65em; color:#475569; margin-top:0.5em;">Building on the existing codebase — not starting from scratch. Trust is built incrementally by streaming intermediate reasoning steps so users see <em>how</em> the agent thinks, not just its conclusions.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Walk through the flow diagram with a real example query. The key is showing that each tool call is purposeful — the agent has a plan before it acts, not just random tool use.
+
+    "Dumb guardrails" is directly from the OpenAI article. The insight is: clever safety mechanisms often fail in unexpected ways. Simple, strict rules (hard scope boundary, citation requirement, confidence threshold) are more reliable.
+
+    The "already built" section is critical — show that this isn't a greenfield project. The agent architecture extends the existing codebase. This makes it credible and implementable.
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 9: COST MODEL
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">Cost &amp; Revenue · Slide 9</div>
+  <h2>Cost Model — 100 Users</h2>
+  <div class="grid-2" style="gap:0.8em; align-items:start;">
+    <div>
+      <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Assumptions</p>
+      <div class="card">
+        <ul>
+          <li>100 consulting candidates, active prep mode</li>
+          <li>3 sessions/week · 15 queries/session</li>
+          <li>100 × 3 × 15 × 4.3 weeks = <strong>~19,350 queries/month</strong></li>
+          <li>Avg: 2,500 input + 600 output tokens/query</li>
+        </ul>
+      </div>
+
+      <p style="font-size:0.68em; color:#64748b; margin-top:0.6em; margin-bottom:0.4em; text-transform:uppercase; letter-spacing:0.06em;">LLM cost with tiered routing</p>
+      <table>
+        <thead><tr><th>Segment</th><th>Queries</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Haiku</strong> 60%<br><span style="font-size:0.8em; color:#64748b;">$1/$5 per MTok</span></td>
+            <td>11,610</td>
+            <td style="color:var(--green);">$64</td>
+          </tr>
+          <tr>
+            <td><strong>Sonnet</strong> 40%<br><span style="font-size:0.8em; color:#64748b;">$3/$15 per MTok</span></td>
+            <td>7,740</td>
+            <td style="color:var(--green);">$127</td>
+          </tr>
+          <tr>
+            <td>Prompt cache savings</td>
+            <td>—</td>
+            <td style="color:var(--green);">−$20</td>
+          </tr>
+          <tr style="background:rgba(56,189,248,0.08);">
+            <td colspan="2"><strong>LLM total</strong></td>
+            <td><strong style="color:var(--accent);">$171</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Full monthly cost breakdown</p>
+      <table>
+        <thead><tr><th>Item</th><th>$/month</th></tr></thead>
+        <tbody>
+          <tr><td>LLM API (Haiku + Sonnet + caching)</td><td style="color:var(--accent);">$171</td></tr>
+          <tr><td>Pinecone Starter (5 PDFs, ~50K chunks)</td><td style="color:var(--accent);">$70</td></tr>
+          <tr><td>Text embedding API</td><td style="color:var(--accent);">$5</td></tr>
+          <tr><td>Bing News Search API</td><td style="color:var(--accent);">$25</td></tr>
+          <tr><td>Supabase (user memory)</td><td style="color:var(--green);">$0 (free)</td></tr>
+          <tr><td>Vercel Pro (hosting)</td><td style="color:var(--accent);">$20</td></tr>
+          <tr class="cost-total"><td><strong>Total</strong></td><td><strong>~$291</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:0.6em;">
+        <div style="font-size:0.52em; color:#64748b; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3em;">Cost breakdown</div>
+        <div style="display:flex; align-items:center; gap:0.35em; margin-bottom:0.15em;">
+          <div style="width:4.5em; font-size:0.55em; color:#94a3b8; text-align:right; flex-shrink:0;">LLM API</div>
+          <div style="flex:1; height:0.65em; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden;"><div style="width:59%; height:100%; background:var(--accent); border-radius:2px;"></div></div>
+          <div style="font-size:0.55em; color:var(--accent); width:2em; text-align:right;">$171</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.35em; margin-bottom:0.15em;">
+          <div style="width:4.5em; font-size:0.55em; color:#94a3b8; text-align:right; flex-shrink:0;">Pinecone</div>
+          <div style="flex:1; height:0.65em; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden;"><div style="width:24%; height:100%; background:#818cf8; border-radius:2px;"></div></div>
+          <div style="font-size:0.55em; color:#818cf8; width:2em; text-align:right;">$70</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.35em; margin-bottom:0.15em;">
+          <div style="width:4.5em; font-size:0.55em; color:#94a3b8; text-align:right; flex-shrink:0;">Bing News</div>
+          <div style="flex:1; height:0.65em; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden;"><div style="width:9%; height:100%; background:#fbbf24; border-radius:2px;"></div></div>
+          <div style="font-size:0.55em; color:#fbbf24; width:2em; text-align:right;">$25</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.35em; margin-bottom:0.15em;">
+          <div style="width:4.5em; font-size:0.55em; color:#94a3b8; text-align:right; flex-shrink:0;">Vercel</div>
+          <div style="flex:1; height:0.65em; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden;"><div style="width:7%; height:100%; background:#94a3b8; border-radius:2px;"></div></div>
+          <div style="font-size:0.55em; color:#94a3b8; width:2em; text-align:right;">$20</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.35em;">
+          <div style="width:4.5em; font-size:0.55em; color:#94a3b8; text-align:right; flex-shrink:0;">Embeddings</div>
+          <div style="flex:1; height:0.65em; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden;"><div style="width:2%; height:100%; background:#4ade80; border-radius:2px;"></div></div>
+          <div style="font-size:0.55em; color:#4ade80; width:2em; text-align:right;">$5</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:1em; margin-top:0.8em; align-items:flex-end;">
+        <div>
+          <div class="big-stat">$2.91</div>
+          <div class="stat-label">per user per month</div>
+        </div>
+        <div style="flex:1; background:rgba(255,255,255,0.03); border-radius:8px; padding:0.5em 0.7em;">
+          <p style="font-size:0.68em; color:#94a3b8; margin:0; line-height:1.5;">Prompt caching: system prompt is identical across requests → cache reads at <strong style="color:#fff;">0.1× base price</strong> = ~$20 savings/month</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Walk through the assumptions clearly. 3 sessions/week × 15 queries is realistic for someone actively doing consulting prep — it's equivalent to one practice case session.
+
+    The tiered routing is a key insight: 60% of queries are simple factual lookups ("What was Salesforce's market share in 2018?") that don't need Sonnet. Routing those to Haiku cuts LLM cost by ~40%.
+
+    Prompt caching: this is a real Anthropic API feature. Because the system prompt is the same for every user (role, rules, format), it can be cached and subsequent requests pay only 10% of the normal input price for those tokens.
+
+    $2.91/user/month is a very strong cost position. Emphasize this.
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 10: REVENUE + TRADEOFFS
+══════════════════════════════════════ -->
+<section>
+  <div class="slide-label">Cost &amp; Revenue · Slide 10</div>
+  <h2>Revenue &amp; Tradeoffs</h2>
+  <div class="grid-2" style="gap:0.8em; align-items:start;">
+    <div>
+      <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Revenue model</p>
+      <table>
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Price per user</td><td><strong style="color:#fff;">$20/month</strong> <span style="color:#64748b; font-size:0.8em;">(vs $60-90 RocketBlocks)</span></td></tr>
+          <tr><td>Revenue at 100 users</td><td style="color:var(--accent);">$2,000/month</td></tr>
+          <tr><td>Gross profit</td><td style="color:var(--green);">$1,709/month</td></tr>
+          <tr><td>Gross margin</td><td style="color:var(--green);">85%</td></tr>
+          <tr class="cost-total"><td>Break-even</td><td><strong style="color:var(--accent);">15 paying users</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:0.6em; display:flex; gap:0.6em;">
+        <div class="card" style="flex:1; text-align:center; padding:0.5em;">
+          <div style="font-size:1.4em; font-weight:800; color:var(--accent);">$20</div>
+          <div style="font-size:0.6em; color:#64748b;">per user/month</div>
+        </div>
+        <div class="card" style="flex:1; text-align:center; padding:0.5em;">
+          <div style="font-size:1.4em; font-weight:800; color:var(--green);">85%</div>
+          <div style="font-size:0.6em; color:#64748b;">gross margin</div>
+        </div>
+        <div class="card" style="flex:1; text-align:center; padding:0.5em;">
+          <div style="font-size:1.4em; font-weight:800; color:#fff;">15</div>
+          <div style="font-size:0.6em; color:#64748b;">users to break even</div>
+        </div>
+      </div>
+
+      <div style="margin-top:0.55em; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:0.5em 0.7em;">
+        <div style="font-size:0.52em; color:#64748b; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3em;">Break-even: 15 of 100 users</div>
+        <div id="breakeven-viz" style="display:flex; flex-wrap:wrap; gap:0.14em; line-height:1;"></div>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Cost tradeoffs to manage</p>
+      <div class="layer-row">
+        <div class="layer-num" style="background:var(--amber);">1</div>
+        <div class="layer-content">
+          <strong>Tiered routing quality risk</strong>
+          <span>Haiku underperforms on complex synthesis → quality gate escalates to Sonnet automatically</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num" style="background:var(--amber);">2</div>
+        <div class="layer-content">
+          <strong>Caching vs. personalization</strong>
+          <span>Per-user memory fragments the cache → keep system prompt fixed, inject memory as a separate non-cached prefix</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num" style="background:var(--amber);">3</div>
+        <div class="layer-content">
+          <strong>Scale cliff at 10K users</strong>
+          <span>Pinecone Standard jumps to $500+/month → migrate to self-hosted Weaviate on $50/month VPS</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num" style="background:var(--amber);">4</div>
+        <div class="layer-content">
+          <strong>Seasonal demand</strong>
+          <span>Recruiting peaks Sep–Nov and Jan–Mar → offer per-session pricing ($1.50) alongside subscription to smooth revenue</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num" style="background:var(--amber);">5</div>
+        <div class="layer-content">
+          <strong>News API rate limits</strong>
+          <span>Bing free tier: 3 calls/sec → cache news by topic for 4 hours, restrict to complex queries only</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    The revenue story is strong: $20/month vs $200-500/hr for a human coach. The break-even at 15 users is extremely low risk. Emphasize that 85% gross margin is excellent for a SaaS product.
+
+    For tradeoffs, focus on #2 (caching vs personalization) and #3 (scale cliff) — these are the most interesting engineering tradeoffs. #2 shows you understand how prompt caching works technically. #3 shows you understand infrastructure economics.
+
+    The seasonal demand point (#4) is important for a consulting prep tool — recruiting cycles are predictable. Offering per-session pricing during off-peak seasons reduces churn risk.
+
+    End the presentation with confidence: "We started with a class dashboard project and five case studies. With the right architecture, this becomes the first case study prep tool that actually knows the cases — because we built them."
+  </aside>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    controls: true,
+    progress: true,
+    slideNumber: 'c/t',
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'fade',
+    width: 1280,
+    height: 720,
+    margin: 0.04,
+    disableLayout: false,
+    plugins: [RevealNotes],
+    keyboard: {
+      83: function() { Reveal.toggleNotesWindow(); } // 'S' for speaker notes
+    }
+  });
+
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+
+  // Scale mobile iframe to fill its column
+  (function() {
+    function scaleMobileIframe() {
+      var wrapper = document.getElementById('iframe-wrapper');
+      var scaler = document.getElementById('iframe-scaler');
+      if (!wrapper || !scaler) return;
+      var scale = wrapper.offsetWidth / 390;
+      scaler.style.transform = 'scale(' + scale + ')';
+      wrapper.style.height = (520 * scale) + 'px';
+    }
+    scaleMobileIframe();
+    window.addEventListener('resize', scaleMobileIframe);
+    Reveal.on('ready', scaleMobileIframe);
+  })();
+
+  // Break-even visualizer — 100 user blocks, 15 filled green
+  (function() {
+    var viz = document.getElementById('breakeven-viz');
+    if (!viz) return;
+    var html = '';
+    for (var i = 0; i < 100; i++) {
+      var filled = i < 15;
+      html += '<div style="width:0.65em;height:0.65em;border-radius:2px;background:' +
+        (filled ? 'rgba(74,222,128,0.85)' : 'rgba(255,255,255,0.07)') +
+        ';border:1px solid ' +
+        (filled ? 'rgba(74,222,128,0.6)' : 'rgba(255,255,255,0.05)') +
+        ';font-size:28px;"></div>';
+    }
+    viz.innerHTML = html;
+  })();
+
+  // Allow mouse wheel scrolling inside a slide before advancing to next slide
+  document.querySelectorAll('.reveal .slides section').forEach(function(section) {
+    section.addEventListener('wheel', function(e) {
+      var atTop = section.scrollTop === 0;
+      var atBottom = section.scrollTop + section.clientHeight >= section.scrollHeight - 2;
+      if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
+        e.stopPropagation();
+      }
+    }, { passive: true });
+  });
+</script>
+</body>
+</html>
