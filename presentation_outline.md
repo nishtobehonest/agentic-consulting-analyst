@@ -73,11 +73,11 @@
 
 ## Slides 4-5: Evaluation Strategy [5 pts]
 
-**The core challenge:** Can't use a pilot group — that doesn't scale. We need automated evaluation that runs before any real user ever touches the system.
+**The core challenge:** Can't use a pilot group — that doesn't scale. I need automated evaluation that runs before any real user ever touches the system.
 
 **Key insight from OpenAI's in-house data agent:**
 > "The only way to scale capability without breaking trust is through systematic evaluation."
-Their method: curated Q&A pairs with "golden answers," compared programmatically (not string matching — semantic equivalence). We adapt this directly to case analysis.
+Their method: curated Q&A pairs with "golden answers," compared programmatically (not string matching — semantic equivalence). I adapt this directly to case analysis.
 
 ---
 
@@ -135,7 +135,7 @@ Their method: curated Q&A pairs with "golden answers," compared programmatically
 ### The 6-Layer Context Architecture
 *(Directly mapped from OpenAI's in-house data agent framework)*
 
-| Layer | OpenAI's System | Our Agentic Consulting Analyst |
+| Layer | OpenAI's System | Agentic Consulting Analyst |
 |---|---|---|
 | **1** | Schema metadata | Case data schema: companies, metrics, time periods, financial structure |
 | **2** | Expert descriptions of key tables | Professor-annotated case summaries + applicable frameworks per case |

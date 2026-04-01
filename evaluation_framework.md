@@ -7,7 +7,7 @@
 
 OpenAI's approach: curated Q&A pairs with "golden answers," compared programmatically using semantic equivalence (not naive string matching). The agent can produce correct answers in many forms — evaluation must recognize correctness, not just exact wording.
 
-We adapt and extend this to case analysis.
+I adapt and extend this to case analysis.
 
 ---
 
@@ -18,7 +18,7 @@ Pilot groups don't scale for 3 reasons:
 2. **Inconsistent signals** — users give varied, subjective feedback that's hard to aggregate
 3. **Cannot gate deploys** — you can't run a pilot group on every code push
 
-Our 6-layer automated framework runs in <5 minutes on every git push, produces quantitative metrics, and blocks bad deploys programmatically.
+My 6-layer automated framework runs in <5 minutes on every git push, produces quantitative metrics, and blocks bad deploys programmatically.
 
 ---
 
@@ -213,7 +213,7 @@ TRAP QUESTIONS (examples):
 
 **Key OpenAI insight:**
 > "Reliability degrades quickly when scope expands faster than governance."
-They deliberately avoided giving broad autonomy. Our agent should have strict, "dumb guardrails."
+They deliberately avoided giving broad autonomy. My agent should have strict, "dumb guardrails."
 
 **Test categories:**
 
