@@ -313,19 +313,14 @@
           <span style="color:#94a3b8; font-weight:600;">Nishchay V</span>
           <span style="color:#475569; margin-left:0.3em;">nv268</span>
         </div>
-        <div style="width:1px; height:0.9em; background:rgba(255,255,255,0.12);"></div>
-        <div style="font-size:0.55em;">
-          <span style="color:#94a3b8; font-weight:600;">Xinxin Xu</span>
-          <span style="color:#475569; margin-left:0.3em;">xx379</span>
-        </div>
       </div>
       <p style="font-size:1.0em; color:#94a3b8; margin-top:0.3em; font-weight:300;">A 24/7 AI That Knows Every Case Cold</p>
       <p style="font-size:0.72em; color:#475569; margin-top:0.15em;">From Static Dashboards to an Autonomous Business Intelligence Agent</p>
       <div class="title-quote">
-        "This is a live product we built as a standalone project — an interactive case study dashboard analyzing the Oracle vs Salesforce competitive landscape, grounded in the digital consulting cases we are studying. It can answer questions about the data on screen. But it cannot reason across multiple cases, it does not remember users across sessions, it cannot pull today's market data, and every conversation starts from scratch. <strong style="color:#e2e8f0;">That's the gap this agent fills.</strong>"
+        "This is a live product I built as a standalone project — an interactive case study dashboard analyzing the Oracle vs Salesforce competitive landscape, grounded in the digital consulting cases I am studying. It can answer questions about the data on screen. But it cannot reason across multiple cases, it does not remember users across sessions, it cannot pull today's market data, and every conversation starts from scratch. <strong style="color:#e2e8f0;">That's the gap this agent fills.</strong>"
       </div>
       <p style="font-size:0.58em; color:#475569; margin-top:0.4em; line-height:1.5;">
-        We prepared and analyzed five business cases — Oracle vs Salesforce, Apple AR, Domino's, Epic, and Upwork — through our digital consulting case classes. This agent is what that ongoing analysis demands.
+        I prepared and analyzed five business cases — Oracle vs Salesforce, Apple AR, Domino's, Epic, and Upwork — through my digital consulting case classes. This agent is what that ongoing analysis demands.
       </p>
       <div class="title-url">→ <a href="https://oracle-salesforce-dashboard.vercel.app" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(56,189,248,0.4);">oracle-salesforce-dashboard.vercel.app</a></div>
     </div>
@@ -345,7 +340,7 @@
   <aside class="notes">
     Start by opening the live dashboard in a browser tab. Show the Oracle vs Salesforce dashboard — the Financials tab, the AI chat. Ask it a question about Salesforce revenue. Then pause: "This is useful. But it has hard limits." Walk through each limit as you set up the problem.
 
-    Key setup: This is not hypothetical. We built and deployed this product as part of our course project. The presentation is about what it needs to become — and why the architecture demands an agent, not just a better prompt.
+    Key setup: This is not hypothetical. I built and deployed this product as part of my course project. The presentation is about what it needs to become — and why the architecture demands an agent, not just a better prompt.
   </aside>
 </section>
 
@@ -355,7 +350,7 @@
 <section>
   <div class="slide-label">Business Problem · Slide 2</div>
   <h2>The Business Problem</h2>
-  <p style="font-size:0.72em; color:#94a3b8; margin-bottom:0.5em;">While preparing our course case studies, we encountered a gap that no existing tool addresses — and that affects every consulting candidate.</p>
+  <p style="font-size:0.72em; color:#94a3b8; margin-bottom:0.5em;">While preparing my course case studies, I encountered a gap that no existing tool addresses — and that affects every consulting candidate.</p>
   <div class="grid-2" style="gap:0.7em; margin-top:0.2em;">
     <div>
       <div class="card">
@@ -392,7 +387,7 @@
           <div style="text-align:center; background:rgba(74,222,128,0.1); border:2px solid rgba(74,222,128,0.4); border-radius:6px; padding:0.45em 0.3em; position:relative;">
             <div style="font-size:0.9em; font-weight:800; color:#4ade80; line-height:1;">$20</div>
             <div style="font-size:0.58em; color:#64748b; margin-top:0.1em;">/month</div>
-            <div style="font-size:0.6em; color:var(--accent); margin-top:0.2em; font-weight:700;">Our Agent</div>
+            <div style="font-size:0.6em; color:var(--accent); margin-top:0.2em; font-weight:700;">This Agent</div>
             <div style="font-size:0.52em; color:#4ade80; margin-top:0.1em;">real cases + live data</div>
           </div>
         </div>
@@ -424,9 +419,9 @@
   <aside class="notes">
     The most important framing: this is not just an academic tool. The real monetizable pain is consulting interview prep. People pay $200–500/hr for human coaches. That's the revenue thesis.
 
-    We are studying five business cases through our digital consulting case classes — Oracle/Salesforce, Apple AR, Domino's, Epic, Upwork. The analysis is done. The knowledge base exists. The agent just needs to unlock it intelligently.
+    I am studying five business cases through my digital consulting case classes — Oracle/Salesforce, Apple AR, Domino's, Epic, Upwork. The analysis is done. The knowledge base exists. The agent just needs to unlock it intelligently.
 
-    End with the ToDo file — it's a real file in our repo. "Even the project itself knows what it needs to become."
+    End with the ToDo file — it's a real file in my repo. "Even the project itself knows what it needs to become."
   </aside>
 </section>
 
@@ -518,13 +513,13 @@
       <div class="card">
         <div class="card-title">The Challenge</div>
         <p>No pilot groups — they don't scale. Can't run a pilot on every code push. Subjective feedback is hard to aggregate. Hiring users takes weeks.</p>
-        <p style="margin-top:0.4em; color:#94a3b8;">We need evaluation that runs in <strong style="color:#fff;">under 5 minutes</strong>, produces <strong style="color:#fff;">quantitative metrics</strong>, and <strong style="color:#fff;">blocks bad deploys programmatically</strong> — on every git push.</p>
+        <p style="margin-top:0.4em; color:#94a3b8;">I need evaluation that runs in <strong style="color:#fff;">under 5 minutes</strong>, produces <strong style="color:#fff;">quantitative metrics</strong>, and <strong style="color:#fff;">blocks bad deploys programmatically</strong> — on every git push.</p>
       </div>
 
       <div class="card" style="margin-top:0.5em;">
         <div class="card-title">OpenAI's Method (Adapted)</div>
         <p>Curated Q&amp;A pairs with <strong>"golden answers"</strong> compared programmatically — not string matching but <strong>semantic equivalence</strong> via cosine similarity of embeddings.</p>
-        <p style="margin-top:0.3em; color:#94a3b8;">Their "golden SQL" = our "golden answers from case PDF text."</p>
+        <p style="margin-top:0.3em; color:#94a3b8;">Their "golden SQL" = my "golden answers from case PDF text."</p>
       </div>
     </div>
 
@@ -561,9 +556,9 @@
   <aside class="notes">
     Start with the OpenAI quote — it's from the assigned article and shows you read it carefully.
 
-    The key insight: evaluation isn't a one-time thing. It's a CI/CD pipeline that runs on every git push. Just like tests in software engineering. Most groups will say "we'd do user testing" — you have a much more sophisticated answer.
+    The key insight: evaluation isn't a one-time thing. It's a CI/CD pipeline that runs on every git push. Just like tests in software engineering. Most students will say "I'd do user testing" — this is a much more sophisticated answer.
 
-    The OpenAI parallel: they compare generated SQL to golden SQL. We compare generated analytical answers to golden answers from case text. Same principle, different domain.
+    The OpenAI parallel: they compare generated SQL to golden SQL. I compare generated analytical answers to golden answers from case text. Same principle, different domain.
   </aside>
 </section>
 
@@ -684,7 +679,7 @@
     <div>
       <p style="font-size:0.68em; color:#64748b; margin-bottom:0.3em; text-transform:uppercase; letter-spacing:0.06em;">Mapped from OpenAI's 6-layer context architecture</p>
       <table style="font-size:0.66em;">
-        <thead><tr><th style="width:10%;">#</th><th>OpenAI System</th><th>Our Agent</th></tr></thead>
+        <thead><tr><th style="width:10%;">#</th><th>OpenAI System</th><th>This Agent</th></tr></thead>
         <tbody>
           <tr><td><strong style="color:var(--accent);">1</strong></td><td>Schema metadata</td><td>Case data schema — companies, metrics, financials</td></tr>
           <tr><td><strong style="color:var(--accent);">2</strong></td><td>Expert table descriptions</td><td>Professor-annotated case summaries + frameworks</td></tr>
@@ -722,11 +717,11 @@
     </div>
   </div>
   <aside class="notes">
-    The 6-layer table is the key differentiator in the architecture section. By mapping each layer to the OpenAI article, we show we're not just describing a chatbot — we're designing the same class of system that OpenAI built internally.
+    The 6-layer table is the key differentiator in the architecture section. By mapping each layer to the OpenAI article, it shows this isn't just describing a chatbot — it's designing the same class of system that OpenAI built internally.
 
     The context window diagram is important for the rubric: "What will be in its context?" Walk through each element. Emphasize that the system prompt is cached — that's a real API feature (Anthropic's prompt caching) that saves money.
 
-    The "context curation > volume" insight explains why our current system's approach (caseContext.js dumps everything) is the wrong architecture. Less context, better curated = better answers + lower cost. We already identified this in our codebase — the ToDo file says it directly.
+    The "context curation > volume" insight explains why the current system's approach (caseContext.js dumps everything) is the wrong architecture. Less context, better curated = better answers + lower cost. I already identified this in my codebase — the ToDo file says it directly.
   </aside>
 </section>
 
@@ -1071,7 +1066,7 @@
 
     The seasonal demand point (#4) is important for a consulting prep tool — recruiting cycles are predictable. Offering per-session pricing during off-peak seasons reduces churn risk.
 
-    End the presentation with confidence: "We started with a class dashboard project and five case studies. With the right architecture, this becomes the first case study prep tool that actually knows the cases — because we built them."
+    End the presentation with confidence: "I started with a class dashboard project and five case studies. With the right architecture, this becomes the first case study prep tool that actually knows the cases — because I built them."
   </aside>
 </section>
 
