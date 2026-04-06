@@ -225,6 +225,21 @@
     }
     .flow-arrow { color: var(--accent); font-size: 0.76em; }
 
+    /* ── Balanced sparse slides ── */
+    .balanced-slide {
+      display: flex;
+      flex-direction: column;
+    }
+    .balanced-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .balanced-body > * {
+      flex-shrink: 0;
+    }
+
     /* ── Title slide specific ── */
     .title-slide { display: flex; flex-direction: column; justify-content: center; height: 100%; }
     .title-slide-grid {
@@ -449,9 +464,10 @@
 <!-- ══════════════════════════════════════
      SLIDE 3: AI PROBLEM + WHY NOT CHATGPT
 ══════════════════════════════════════ -->
-<section>
+<section class="balanced-slide">
   <div class="slide-label">AI Problem · Slide 3</div>
   <h2>The AI Problem</h2>
+  <div class="balanced-body">
   <div class="grid-2" style="gap:0.8em;">
     <div>
       <p style="font-size:0.62em; color:#64748b; margin-bottom:0.4em;">Why this requires an <em>agent</em>, not a prompt</p>
@@ -508,6 +524,7 @@
       </div>
     </div>
   </div>
+  </div>
   <aside class="notes">
     The 4 AI requirements explain why this is structurally an agent problem, not a "better prompt" problem. Emphasize #2 — multi-step reasoning — because that's what defines agentic systems vs chatbots.
 
@@ -520,9 +537,10 @@
 <!-- ══════════════════════════════════════
      SLIDE 4: EVALUATION — INTRO
 ══════════════════════════════════════ -->
-<section>
+<section class="balanced-slide">
   <div class="slide-label">Evaluation · Slide 4</div>
   <h2>Evaluating the Agent</h2>
+  <div class="balanced-body">
   <div style="margin-bottom:0.8em;">
     <div class="highlight-box">
       <p>"The only way to scale capability without breaking trust is through systematic evaluation." — OpenAI, Inside Our In-House Data Agent</p>
@@ -573,6 +591,7 @@
         <div class="layer-content"><strong>Scope Boundary Tests</strong><span>Off-topic + ambiguous queries, measure graceful decline</span></div>
       </div>
     </div>
+  </div>
   </div>
   <aside class="notes">
     Start with the OpenAI quote — it's from the assigned article and shows you read it carefully.
@@ -689,9 +708,10 @@
 <!-- ══════════════════════════════════════
      SLIDE 6: ARCHITECTURE — CONTEXT + 6 LAYERS
 ══════════════════════════════════════ -->
-<section>
+<section class="balanced-slide">
   <div class="slide-label">Architecture · Slide 6</div>
   <h2>Agent Architecture</h2>
+  <div class="balanced-body">
   <div class="highlight-box" style="margin-bottom:0.7em;">
     <p>"A junior consultant who has read every case cover-to-cover, has a live Bloomberg terminal, and never forgets a single client conversation."</p>
   </div>
@@ -737,6 +757,7 @@
       <p style="font-size:0.66em; color:#64748b; margin-top:0.4em;">vs ~8,000+ tokens in the current system (everything dumped)</p>
     </div>
   </div>
+  </div>
   <aside class="notes">
     The 6-layer table is the key differentiator in the architecture section. By mapping each layer to the OpenAI article, we show we're not just describing a chatbot — we're designing the same class of system that OpenAI built internally.
 
@@ -749,9 +770,10 @@
 <!-- ══════════════════════════════════════
      SLIDE 7: MEMORY + TOOLS
 ══════════════════════════════════════ -->
-<section>
+<section class="balanced-slide">
   <div class="slide-label">Architecture · Slide 7</div>
   <h2>Memory &amp; Tools</h2>
+  <div class="balanced-body">
   <div class="grid-2" style="gap:0.8em; align-items:start;">
     <div>
       <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">3 types of memory</p>
@@ -803,6 +825,7 @@
       </table>
     </div>
   </div>
+  </div>
   <aside class="notes">
     The 3 memory types map directly to the course concepts the rubric asks about: RAG (semantic), Memories (episodic), and Skills (procedural/fine-tuning alternative).
 
@@ -815,9 +838,10 @@
 <!-- ══════════════════════════════════════
      SLIDE 8: ORCHESTRATION + SAFETY
 ══════════════════════════════════════ -->
-<section>
+<section class="balanced-slide">
   <div class="slide-label">Architecture · Slide 8</div>
   <h2>Orchestration &amp; Safety</h2>
+  <div class="balanced-body">
   <div class="grid-2" style="gap:0.8em; align-items:start;">
     <div>
       <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Example: complex query flow</p>
@@ -880,6 +904,7 @@
       <p style="font-size:0.65em; color:#475569; margin-top:0.5em;">Building on the existing codebase — not starting from scratch. Trust is built incrementally by streaming intermediate reasoning steps so users see <em>how</em> the agent thinks, not just its conclusions.</p>
     </div>
   </div>
+  </div>
   <aside class="notes">
     Walk through the flow diagram with a real example query. The key is showing that each tool call is purposeful — the agent has a plan before it acts, not just random tool use.
 
@@ -892,9 +917,10 @@
 <!-- ══════════════════════════════════════
      SLIDE 9: COST MODEL
 ══════════════════════════════════════ -->
-<section>
+<section class="balanced-slide">
   <div class="slide-label">Cost &amp; Revenue · Slide 9</div>
   <h2>Cost Model — 100 Users</h2>
+  <div class="balanced-body">
   <div class="grid-2" style="gap:0.8em; align-items:start;">
     <div>
       <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Assumptions</p>
@@ -989,6 +1015,7 @@
       </div>
     </div>
   </div>
+  </div>
   <aside class="notes">
     Walk through the assumptions clearly. 3 sessions/week × 15 queries is realistic for someone actively doing consulting prep — it's equivalent to one practice case session.
 
@@ -1003,9 +1030,10 @@
 <!-- ══════════════════════════════════════
      SLIDE 10: REVENUE + TRADEOFFS
 ══════════════════════════════════════ -->
-<section>
+<section class="balanced-slide">
   <div class="slide-label">Cost &amp; Revenue · Slide 10</div>
   <h2>Revenue &amp; Tradeoffs</h2>
+  <div class="balanced-body">
   <div class="grid-2" style="gap:0.8em; align-items:start;">
     <div>
       <p style="font-size:0.58em; color:#64748b; margin-bottom:0.25em; text-transform:uppercase; letter-spacing:0.06em;">Revenue model</p>
@@ -1079,6 +1107,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
   <aside class="notes">
     The revenue story is strong: $20/month vs $200-500/hr for a human coach. The break-even at 15 users is extremely low risk. Emphasize that 85% gross margin is excellent for a SaaS product.
