@@ -25,16 +25,16 @@
 
     .reveal {
       font-family: 'Inter', sans-serif;
-      font-size: 28px; /* night theme defaults to ~40px — this scales everything down */
+      font-size: 24px; /* keep slides inside the fixed 16:9 frame */
     }
 
     .reveal .slides section {
       text-align: left;
       height: 100%;
-      overflow-y: auto;
+      overflow-y: hidden;
       overflow-x: hidden;
       box-sizing: border-box;
-      padding-bottom: 1em !important;
+      padding-bottom: 0.35em !important;
     }
 
     /* Custom scrollbar so it doesn't look ugly */
@@ -50,11 +50,11 @@
     }
 
     /* ── Typography ── */
-    .reveal h1 { font-size: 1.7em; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1.1; }
-    .reveal h2 { font-size: 1.15em; font-weight: 700; color: var(--accent); letter-spacing: -0.01em; margin-bottom: 0.35em; }
-    .reveal h3 { font-size: 0.9em; font-weight: 600; color: #e2e8f0; margin-bottom: 0.25em; }
-    .reveal p  { font-size: 0.72em; color: #cbd5e1; line-height: 1.5; }
-    .reveal li { font-size: 0.7em; color: #cbd5e1; line-height: 1.5; margin-bottom: 0.18em; }
+    .reveal h1 { font-size: 1.55em; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1.05; }
+    .reveal h2 { font-size: 1.02em; font-weight: 700; color: var(--accent); letter-spacing: -0.01em; margin-bottom: 0.28em; }
+    .reveal h3 { font-size: 0.82em; font-weight: 600; color: #e2e8f0; margin-bottom: 0.18em; }
+    .reveal p  { font-size: 0.66em; color: #cbd5e1; line-height: 1.38; }
+    .reveal li { font-size: 0.64em; color: #cbd5e1; line-height: 1.36; margin-bottom: 0.12em; }
     .reveal strong { color: #fff; }
 
     /* ── Slide label ── */
@@ -62,7 +62,7 @@
       position: absolute;
       top: 0.8em;
       right: 1em;
-      font-size: 0.48em;
+      font-size: 0.44em;
       font-weight: 500;
       color: rgba(255,255,255,0.3);
       text-transform: uppercase;
@@ -99,26 +99,26 @@
       background: var(--surface);
       border: 1px solid var(--surface-border);
       border-radius: 8px;
-      padding: 0.55em 0.75em;
-      margin-bottom: 0.35em;
+      padding: 0.42em 0.62em;
+      margin-bottom: 0.24em;
     }
     .card-title {
-      font-size: 0.62em;
+      font-size: 0.58em;
       font-weight: 700;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.14em;
     }
-    .card p, .card li { font-size: 0.68em; margin-bottom: 0.12em; }
+    .card p, .card li { font-size: 0.63em; margin-bottom: 0.08em; }
 
     /* ── Two-col grid ── */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6em; }
-    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5em; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.48em; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.4em; }
 
     /* ── Tables ── */
     .reveal table {
-      font-size: 0.62em;
+      font-size: 0.56em;
       width: 100%;
       border-collapse: collapse;
     }
@@ -126,15 +126,15 @@
       background: rgba(56,189,248,0.2);
       color: var(--accent);
       font-weight: 600;
-      padding: 0.35em 0.6em;
+      padding: 0.26em 0.45em;
       text-align: left;
       border-bottom: 2px solid var(--accent);
-      font-size: 0.85em;
+      font-size: 0.8em;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .reveal table td {
-      padding: 0.32em 0.6em;
+      padding: 0.24em 0.45em;
       border-bottom: 1px solid rgba(255,255,255,0.06);
       color: #cbd5e1;
       vertical-align: top;
@@ -145,13 +145,13 @@
     /* ── Code / mono ── */
     .mono {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6em;
+      font-size: 0.56em;
       background: rgba(0,0,0,0.4);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 6px;
-      padding: 0.55em 0.8em;
+      padding: 0.42em 0.65em;
       color: #94a3b8;
-      line-height: 1.6;
+      line-height: 1.45;
       white-space: pre;
     }
     .mono .hi { color: var(--accent); }
@@ -160,7 +160,7 @@
 
     /* ── Big stat ── */
     .big-stat {
-      font-size: 1.8em;
+      font-size: 1.55em;
       font-weight: 800;
       color: var(--accent);
       line-height: 1;
@@ -176,26 +176,26 @@
       background: var(--accent-glow);
       border-left: 3px solid var(--accent);
       border-radius: 0 6px 6px 0;
-      padding: 0.4em 0.75em;
-      margin: 0.4em 0;
+      padding: 0.3em 0.58em;
+      margin: 0.26em 0;
     }
-    .highlight-box p { font-size: 0.7em; color: #e2e8f0; margin: 0; font-style: italic; }
+    .highlight-box p { font-size: 0.63em; color: #e2e8f0; margin: 0; font-style: italic; }
 
     /* ── Layer cards for eval ── */
     .layer-row {
       display: flex;
       align-items: flex-start;
-      gap: 0.55em;
-      margin-bottom: 0.32em;
+      gap: 0.42em;
+      margin-bottom: 0.22em;
     }
     .layer-num {
-      width: 1.4em;
-      height: 1.4em;
+      width: 1.24em;
+      height: 1.24em;
       border-radius: 50%;
       background: var(--accent);
       color: #000;
       font-weight: 800;
-      font-size: 0.68em;
+      font-size: 0.62em;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -203,46 +203,62 @@
       margin-top: 0.1em;
     }
     .layer-content { flex: 1; }
-    .layer-content strong { font-size: 0.7em; color: #fff; }
-    .layer-content span { font-size: 0.65em; color: #94a3b8; display: block; }
+    .layer-content strong { font-size: 0.64em; color: #fff; }
+    .layer-content span { font-size: 0.6em; color: #94a3b8; display: block; }
 
     /* ── Flow diagram ── */
     .flow {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.25em;
-      margin: 0.35em 0;
+      gap: 0.2em;
+      margin: 0.24em 0;
     }
     .flow-step {
       background: var(--surface);
       border: 1px solid var(--surface-border);
       border-radius: 5px;
-      padding: 0.22em 0.5em;
-      font-size: 0.6em;
+      padding: 0.18em 0.42em;
+      font-size: 0.55em;
       color: #e2e8f0;
       font-weight: 500;
     }
-    .flow-arrow { color: var(--accent); font-size: 0.8em; }
+    .flow-arrow { color: var(--accent); font-size: 0.72em; }
 
     /* ── Title slide specific ── */
     .title-slide { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+    .title-slide-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.35em;
+      height: 100%;
+      align-items: center;
+      padding: 0.3em 0;
+    }
+    .title-slide-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+    }
     .title-eyebrow {
       font-size: 0.58em;
       font-weight: 600;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 0.4em;
+      margin-bottom: 0.28em;
     }
     .title-quote {
-      font-size: 0.62em;
+      font-size: 0.56em;
       color: #64748b;
       font-style: italic;
       border-left: 2px solid #334155;
       padding-left: 0.7em;
-      margin-top: 0.8em;
-      line-height: 1.55;
+      margin-top: 0.55em;
+      line-height: 1.42;
     }
     .title-url {
       font-family: 'JetBrains Mono', monospace;
@@ -281,8 +297,8 @@
       background: rgba(74,222,128,0.12);
       border: 1px solid rgba(74,222,128,0.3);
       border-radius: 2em;
-      padding: 0.1em 0.5em;
-      font-size: 0.58em;
+      padding: 0.08em 0.42em;
+      font-size: 0.52em;
       font-weight: 600;
       color: var(--green);
     }
@@ -303,7 +319,7 @@
      SLIDE 1: TITLE
 ══════════════════════════════════════ -->
 <section>
-  <div style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:1.8em; height:100%; align-items:center; padding:0.3em 0;">
+  <div class="title-slide-grid">
     <div>
       <div class="title-eyebrow">AI for Business Applications</div>
       <div class="accent-bar"></div>
@@ -329,7 +345,7 @@
       </p>
       <div class="title-url">→ <a href="https://oracle-salesforce-dashboard.vercel.app" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(56,189,248,0.4);">oracle-salesforce-dashboard.vercel.app</a></div>
     </div>
-    <div style="display:flex; flex-direction:column; gap:0.5em;">
+    <div class="title-slide-demo">
       <div id="iframe-wrapper" style="border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 8px 40px rgba(0,0,0,0.5); position:relative; width:100%;">
         <div id="iframe-scaler" style="transform-origin:top left; width:390px;">
           <iframe src="https://oracle-salesforce-dashboard.vercel.app"
@@ -339,7 +355,7 @@
           </iframe>
         </div>
       </div>
-      <p style="font-size:0.52em; color:#334155; text-align:center; margin:0;">oracle-salesforce-dashboard.vercel.app — live, deployed on Vercel</p>
+      <p id="iframe-caption" style="font-size:0.52em; color:#334155; text-align:center; margin:0;">oracle-salesforce-dashboard.vercel.app — live, deployed on Vercel</p>
     </div>
   </div>
   <aside class="notes">
@@ -1107,10 +1123,21 @@
     function scaleMobileIframe() {
       var wrapper = document.getElementById('iframe-wrapper');
       var scaler = document.getElementById('iframe-scaler');
-      if (!wrapper || !scaler) return;
-      var scale = wrapper.offsetWidth / 390;
+      var caption = document.getElementById('iframe-caption');
+      var column = wrapper ? wrapper.parentElement : null;
+      if (!wrapper || !scaler || !column) return;
+
+      var naturalWidth = 390;
+      var naturalHeight = 520;
+      var horizontalScale = column.clientWidth / naturalWidth;
+      var verticalPadding = caption ? caption.offsetHeight + 16 : 16;
+      var availableHeight = Math.max(column.clientHeight - verticalPadding, naturalHeight * 0.6);
+      var verticalScale = availableHeight / naturalHeight;
+      var scale = Math.min(horizontalScale, verticalScale, 1);
+
       scaler.style.transform = 'scale(' + scale + ')';
-      wrapper.style.height = (520 * scale) + 'px';
+      wrapper.style.width = (naturalWidth * scale) + 'px';
+      wrapper.style.height = (naturalHeight * scale) + 'px';
     }
     scaleMobileIframe();
     window.addEventListener('resize', scaleMobileIframe);
@@ -1133,7 +1160,7 @@
     viz.innerHTML = html;
   })();
 
-  // Allow mouse wheel scrolling inside a slide before advancing to next slide
+  // With content constrained to the slide frame, wheel events should advance slides.
   document.querySelectorAll('.reveal .slides section').forEach(function(section) {
     section.addEventListener('wheel', function(e) {
       var atTop = section.scrollTop === 0;
